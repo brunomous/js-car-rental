@@ -1,0 +1,23 @@
+[
+  {
+    "id": "4cb14dbf-f0ff-419b-9842-102fb2b7fd9f",
+    "name": "Model Y",
+    "releaseYear": 2022,
+    "availableForRental": true,
+    "hasFuel": true
+  },
+  {
+    "id": "86aefdb5-aa7b-44e1-9004-c50504014ab5",
+    "name": "2",
+    "releaseYear": 2023,
+    "availableForRental": true,
+    "hasFuel": true
+  },
+  {
+    "id": "fd140ee6-7b5c-48a6-9d5b-7047c037ee7e",
+    "name": "Model 3",
+    "releaseYear": 2023,
+    "availableForRental": true,
+    "hasFuel": true
+  }
+]
