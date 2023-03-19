@@ -10,5 +10,8 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "rules": {}
+  "rules": {
+    "class-methods-use-this": "off",
+    "no-unused-expressions": "off"
+  }
 }

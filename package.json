@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint . --fix",
-    "seed": "node ./seed"
+    "seed": "node ./seed",
+    "test": "mocha -w --parallel **/**/*.test.js",
+    "test:coverage": "nyc yarn test"
   },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
@@ -13,6 +15,10 @@
     "eslint-plugin-import": "^2.25.2"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.6.0"
+    "@faker-js/faker": "^7.6.0",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "sinon": "^15.0.2"
   }
 }
