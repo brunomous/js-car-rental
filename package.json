@@ -7,7 +7,7 @@
     "lint": "eslint . --fix",
     "seed": "node ./seed",
     "test": "mocha -w --parallel **/**/*.test.js",
-    "test:coverage": "nyc yarn test"
+    "test:coverage": "nyc yarn mocha --parallel **/**/*.test.js"
   },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",

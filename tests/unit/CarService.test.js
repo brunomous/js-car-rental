@@ -6,9 +6,11 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const CarService = require('../../src/service/CarService');
+const Transaction = require('../../src/entities/Transaction');
 
 const validCar = require('../mocks/validCar.json');
 const validCarCategory = require('../mocks/validCarCategory.json');
+const validCustomer = require('../mocks/validCustomer.json');
 
 const carsDatabase = join(__dirname, './../../database', 'cars.json');
 
@@ -73,6 +75,61 @@ describe('CarService Suite Tests', () => {
 
     expect(carService.chooseRandomCar.calledOnce).to.be.ok;
     expect(carService.carRepository.find.calledWithExactly(car.id));
+    expect(result).to.be.deep.equal(expected);
+  });
+
+  it('given a car category, customer and number of days, calculate final amount', async () => {
+    const customer = Object.create(validCustomer);
+
+    const carCategory = Object.create(validCarCategory);
+    carCategory.price = 37.6;
+
+    const numberOfDays = 5;
+
+    sandbox.stub(
+      carService,
+      'taxesByAge',
+    ).get(() => [{ from: 30, to: 40, then: 1.3 }]);
+
+    const expected = carService.currencyFormat.format(244.40);
+    const result = await carService.calculateFinalPrice(customer, carCategory, numberOfDays);
+
+    expect(result).to.be.deep.equal(expected);
+  });
+
+  it('given a customer and a car category, return a transaction receipt', async () => {
+    const car = validCar;
+    const carCategory = {
+      ...validCarCategory,
+      price: 37.6,
+      carIds: [car.id],
+    };
+    const customer = Object.create(validCustomer);
+
+    const numberOfDays = 5;
+
+    const dueDate = '10 de novembro de 2020';
+
+    const now = new Date(2020, 10, 5);
+
+    sandbox.useFakeTimers(now.getTime());
+
+    sandbox.stub(
+      carService.carRepository,
+      carService.carRepository.find.name,
+    ).resolves(car);
+
+    const expectedAmount = carService.currencyFormat.format(206.80);
+
+    const result = await carService.rentCar(customer, carCategory, numberOfDays);
+
+    const expected = new Transaction({
+      customer,
+      car,
+      amount: expectedAmount,
+      dueDate,
+    });
+
     expect(result).to.be.deep.equal(expected);
   });
 });
