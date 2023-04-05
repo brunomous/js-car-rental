@@ -42,7 +42,7 @@ for (let index = 0; index <= AMOUNT_PER_SEED; index += 1) {
   const customer = new Customer({
     id: faker.datatype.uuid(),
     name: faker.name.firstName(),
-    birthDate: faker.date.birthdate(MIN_AGE, MAX_AGE, 'age'),
+    age: faker.datatype.number({ min: MIN_AGE, max: MAX_AGE }),
   });
 
   customers.push(customer);

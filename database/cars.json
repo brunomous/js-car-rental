@@ -1,21 +1,21 @@
 [
   {
-    "id": "4cb14dbf-f0ff-419b-9842-102fb2b7fd9f",
-    "name": "Model Y",
+    "id": "ba15e7d9-d7d4-4c15-890b-ba0db11dfa49",
+    "name": "Taurus",
     "releaseYear": 2022,
     "availableForRental": true,
     "hasFuel": true
   },
   {
-    "id": "86aefdb5-aa7b-44e1-9004-c50504014ab5",
-    "name": "2",
+    "id": "7531a71b-eac4-47f9-bffd-f9bf7885ddc1",
+    "name": "Golf",
     "releaseYear": 2023,
     "availableForRental": true,
     "hasFuel": true
   },
   {
-    "id": "fd140ee6-7b5c-48a6-9d5b-7047c037ee7e",
-    "name": "Model 3",
+    "id": "5ef28eb8-d78d-44b4-bd13-e1207fba5c2b",
+    "name": "Mustang",
     "releaseYear": 2023,
     "availableForRental": true,
     "hasFuel": true

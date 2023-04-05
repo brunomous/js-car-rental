@@ -119,7 +119,7 @@ describe('CarService Suite Tests', () => {
       carService.carRepository.find.name,
     ).resolves(car);
 
-    const expectedAmount = carService.currencyFormat.format(206.80);
+    const expectedAmount = carService.currencyFormat.format(244.40);
 
     const result = await carService.rentCar(customer, carCategory, numberOfDays);
 

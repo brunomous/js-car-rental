@@ -1,9 +1,9 @@
 const Base = require('./Base');
 
 class Customer extends Base {
-  constructor({ id, name, birthDate }) {
+  constructor({ id, name, age }) {
     super({ id, name });
-    this.birthDate = birthDate;
+    this.age = age;
   }
 }
 

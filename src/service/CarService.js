@@ -13,10 +13,6 @@ class CarService {
     });
   }
 
-  test() {
-    return this.carRepository.find();
-  }
-
   getRandomPositionFromArray(list) {
     const listLength = list.length;
 
@@ -37,15 +33,8 @@ class CarService {
     return car;
   }
 
-  calculateAge(birthDate) {
-    const ageDifMs = Date.now() - new Date(birthDate).getTime();
-    const ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
-
   async calculateFinalPrice(customer, carCategory, numberOfDays) {
-    const { birthDate } = customer;
-    const age = this.calculateAge(birthDate);
+    const { age } = customer;
 
     const { price } = carCategory;
     const { then: tax } = this.taxesByAge.find(
